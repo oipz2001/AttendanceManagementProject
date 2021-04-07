@@ -1,0 +1,40 @@
+{
+  "database": {
+    "rules": "database.rules.json"
+  },
+  "functions": {
+  },
+  "emulators": {
+    "firestore": {
+      "port": "8080"
+    },
+    "ui": {
+      "enabled": true,      // Default is `true`
+      "host": "localhost",
+      "port": 4000         // If unspecified, see CLI log for selected port
+    },
+    "functions": {
+      "port": "5000"
+    },
+    "database": {
+      "port": "9000"
+    }
+    
+
+  },
+  "react-native": {
+    // on device face detection
+    "ml_vision_face_model": true,
+    // on device text recognition
+    "ml_vision_ocr_model": true,
+    // on device barcode detection
+    "ml_vision_barcode_model": true,
+
+    // on device image labeling
+    "ml_vision_label_model": true,
+    "ml_vision_image_label_model": true
+  }
+	
+  
+}
+

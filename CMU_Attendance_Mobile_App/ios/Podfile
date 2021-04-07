@@ -1,0 +1,39 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
+platform :ios, '10.0'
+
+target 'mobileAttendanceCheck' do
+  config = use_native_modules!
+
+  use_react_native!(:path => config["reactNativePath"])
+
+  pod 'AzureAuth', :path => '../node_modules/react-native-azure-auth'
+
+  pod 'RNCAsyncStorage', :path => '../node_modules/@react-native-community/async-storage'
+
+  pod 'RNCPicker', :path => '../node_modules/@react-native-community/picker'
+
+  target 'mobileAttendanceCheckTests' do
+    inherit! :complete
+    # Pods for testing
+  end
+
+  # Enables Flipper.
+  #
+  # Note that if you have use_frameworks! enabled, Flipper will not work and
+  # you should disable these next few lines.
+  use_flipper!
+  post_install do |installer|
+    flipper_post_install(installer)
+  end
+end
+
+target 'mobileAttendanceCheck-tvOS' do
+  # Pods for mobileAttendanceCheck-tvOS
+
+  target 'mobileAttendanceCheck-tvOSTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+end
